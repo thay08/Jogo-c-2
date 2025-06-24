@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Forca - Estilo Minecraft</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="game-container">
+        <header class="game-header">
+            <h1 class="game-title">JOGO DA FORCA</h1>
+            <div class="minecraft-logo">⛏️</div>
+        </header>
+
+        <div class="game-board">
+            <div class="hangman-container">
+                <div class="gallows">
+                    <div class="gallows-base"></div>
+                    <div class="gallows-pole"></div>
+                    <div class="gallows-top"></div>
+                    <div class="gallows-rope"></div>
+                </div>
+                <div class="hangman-figure" id="hangman">
+                    <div class="head" id="head"></div>
+                    <div class="body" id="body"></div>
+                    <div class="left-arm" id="leftArm"></div>
+                    <div class="right-arm" id="rightArm"></div>
+                    <div class="left-leg" id="leftLeg"></div>
+                    <div class="right-leg" id="rightLeg"></div>
+                </div>
+            </div>
+
+            <div class="game-info">
+                <div class="word-display" id="wordDisplay"></div>
+                
+                <div class="game-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Tentativas Restantes:</span>
+                        <span class="stat-value" id="attemptsLeft">6</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Letras Usadas:</span>
+                        <span class="stat-value" id="usedLetters">-</span>
+                    </div>
+                </div>
+
+                <div class="alphabet-container">
+                    <div class="alphabet" id="alphabet"></div>
+                </div>
+
+                <div class="game-controls">
+                    <button class="minecraft-btn primary" id="newGameBtn">Novo Jogo</button>
+                    <button class="minecraft-btn secondary" id="hintBtn">Dica</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-message" id="gameMessage"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
