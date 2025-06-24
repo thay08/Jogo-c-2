@@ -137,11 +137,53 @@ class ForcaGame {
         if (!this.palavraMascara.includes('_')) {
             // Vitória
             this.jogoTerminado = true;
+            this.mostrarBonecoFeliz();
             this.mostrarMensagem('🎉 PARABÉNS! VOCÊ VENCEU! 🎉', 'win');
         } else if (this.tentativas >= this.maxTentativas) {
             // Derrota
             this.jogoTerminado = true;
+            this.mostrarBonecoEnforcado();
             this.mostrarMensagem(`💀 VOCÊ PERDEU! A palavra era: ${this.palavraAtual.toUpperCase()} 💀`, 'lose');
+        }
+    }
+    
+    mostrarBonecoFeliz() {
+        // Mostrar todas as partes do boneco
+        this.hangmanParts.forEach(part => {
+            part.classList.add('show');
+        });
+        
+        // Adicionar classe feliz
+        const hangmanFigure = document.getElementById('hangman');
+        const head = document.getElementById('head');
+        
+        hangmanFigure.classList.add('happy');
+        head.classList.add('happy');
+        
+        // Remover a corda quando ganhar
+        const rope = document.querySelector('.gallows-rope');
+        if (rope) {
+            rope.style.opacity = '0';
+        }
+    }
+    
+    mostrarBonecoEnforcado() {
+        // Mostrar todas as partes do boneco
+        this.hangmanParts.forEach(part => {
+            part.classList.add('show');
+        });
+        
+        // Adicionar classe morto
+        const hangmanFigure = document.getElementById('hangman');
+        const head = document.getElementById('head');
+        
+        hangmanFigure.classList.add('dead');
+        head.classList.add('dead');
+        
+        // Manter a corda visível
+        const rope = document.querySelector('.gallows-rope');
+        if (rope) {
+            rope.style.opacity = '1';
         }
     }
     
@@ -166,6 +208,19 @@ class ForcaGame {
         this.hangmanParts.forEach(part => {
             part.classList.remove('show');
         });
+        
+        // Limpar estados visuais
+        const hangmanFigure = document.getElementById('hangman');
+        const head = document.getElementById('head');
+        
+        hangmanFigure.classList.remove('happy', 'dead');
+        head.classList.remove('happy', 'dead');
+        
+        // Restaurar a corda
+        const rope = document.querySelector('.gallows-rope');
+        if (rope) {
+            rope.style.opacity = '1';
+        }
     }
     
     mostrarDica() {
